@@ -10,33 +10,33 @@ export enum FlightStatus {
 @Entity('flights')
 export class Flight {
     @PrimaryGeneratedColumn()
-    id: number;
+    id!: number;
 
     @Column({ name: 'flight_number', type: 'varchar', length: 20 })
-    flightNumber: string;
+    flightNumber!: string;
 
     @Column({ type: 'varchar', length: 10 })
-    origin: string;
+    origin!: string;
 
     @Column({ type: 'varchar', length: 10 })
-    destination: string;
+    destination!: string;
 
     @Column({ name: 'departure_time', type: 'timestamp' })
-    departureTime: Date;
+    departureTime!: Date;
 
     @Column({ type: 'int' })
-    capacity: number;
+    capacity!: number;
 
     @Column({ name: 'available_seats', type: 'int' })
-    availableSeats: number;
+    availableSeats!: number;
 
     @Column({
         type: 'enum',
         enum: FlightStatus,
         default: FlightStatus.SCHEDULED,
     })
-    status: FlightStatus;
+    status!: FlightStatus;
 
     @OneToMany(() => Booking, (booking) => booking.flight)
-    bookings: Booking[];
+    bookings!: Booking[];
 }

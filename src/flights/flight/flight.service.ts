@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 import { CreateFlightDto } from './dto/create-flight.dto';
-import { UpdateFlightgDto } from './dto/update-flight.dto';
+import { UpdateFlightDto } from './dto/update-flight.dto';
 
 import { Flight } from '../entities/flight.entity';
 import { Booking } from '../entities/booking.entity';
@@ -23,7 +23,7 @@ async create(dto: CreateFlightDto): Promise<Booking> {
         return await this.flightRepository.save(Flight);
     }
 
-async findAll(): Promise<Flightt[]> {
+async findAll(): Promise<Flight[]> {
         return await this.flightRepository.find({ order: { date: 'ASC' } });
     }
 

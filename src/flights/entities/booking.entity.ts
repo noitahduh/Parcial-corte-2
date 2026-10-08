@@ -10,29 +10,29 @@ export enum BookingStatus {
 @Entity('bookings')
 export class Booking {
     @PrimaryGeneratedColumn()
-    id: number;
+    id!: number;
 
     @ManyToOne(() => User, (user) => user.bookings, { nullable: false, onDelete: 'CASCADE' })
     @JoinColumn({ name: 'user_id' })
-    user: User;
+    user!: User;
 
     @ManyToOne(() => Flight, (flight) => flight.bookings, { nullable: false, onDelete: 'CASCADE' })
     @JoinColumn({ name: 'flight_id' })
-    flight: Flight;
+    flight!: Flight;
 
     @Column({ name: 'seat_count', type: 'int' })
-    seatCount: number;
+    seatCount!: number;
 
     @Column({
         type: 'enum',
         enum: BookingStatus,
         default: BookingStatus.CONFIRMED,
     })
-    status: BookingStatus;
+    status!: BookingStatus;
 
     @Column({ name: 'booking_reference', type: 'varchar', length: 50, nullable: true })
-    bookingReference: string;
+    bookingReference!: string;
 
     @Column({ name: 'created_at', type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-    createdAt: Date;
+    createdAt!: Date;
 }

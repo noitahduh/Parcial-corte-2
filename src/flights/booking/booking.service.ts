@@ -24,7 +24,7 @@ export class BookingService {
         // 1. El evento debe existir
         const event = await this.flightRepository.findOneBy({ id: dto.eventId });
         if (!event) {
-            throw new EventNotFoundException(dto.eventId);
+            throw new FlightNotFoundException(dto.eventId);
         }
 
         // 2. Debe estar activo
