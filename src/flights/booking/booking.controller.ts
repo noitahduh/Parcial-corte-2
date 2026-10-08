@@ -19,7 +19,6 @@ export class BookingController {
     @Permissions('create_reservation')
     create(@Body() dto: CreateBookingDto, @Req() req: AuthenticatedRequest) {
         return this.bookingService.create(dto, req.user as User);
-   
          }
  }
 
